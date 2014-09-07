@@ -15,6 +15,7 @@ public class Assignment extends Frame{
 		addWindowListener(new WindowAdapter()
 		   {public void windowClosing(WindowEvent e){System.exit(0);}});
 		setSize(600, 400);
+		add("Center", new square());
 		
 		Dimension screenSize = 
 				Toolkit.getDefaultToolkit().getScreenSize();
@@ -28,4 +29,21 @@ public class Assignment extends Frame{
 		show();
 	}
 
+}
+
+class square extends Canvas{
+	int maxX, maxY;
+	
+	void initial(){
+		Dimension d = getSize();
+		maxX = d.width - 1;
+		maxY = d.height - 1;
+	}
+	
+	int iX(float x){return Math.round(x);}
+	int iY(float y){return maxY - Math.round(y);}
+	
+	public void paint(Graphics g){
+		initial();
+	}
 }
